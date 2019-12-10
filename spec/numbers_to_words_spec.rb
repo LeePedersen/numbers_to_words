@@ -10,9 +10,21 @@ describe('Word#numbers_to_words') do
     number = Word.new(11)
     expect(number.numbers_to_words()).to(eq("eleven"))
   end
-  it("returns 'twenty' when given 21") do
+  it("returns 'twenty' when given 20") do
     number = Word.new(20)
     expect(number.numbers_to_words()).to(eq("twenty"))
+  end
+  it("returns 'twentyone' when given 21") do
+    number = Word.new(21)
+    expect(number.numbers_to_words()).to(eq("twentyone"))
+  end
+  it("returns 'fiftysix' when given 99") do
+    number = Word.new(99)
+    expect(number.numbers_to_words()).to(eq("ninetynine"))
+  end
+  it("returns 'fiftysix' when given 80") do
+    number = Word.new(80)
+    expect(number.numbers_to_words()).to(eq("eighty"))
   end
 
 end

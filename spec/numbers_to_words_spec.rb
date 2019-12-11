@@ -40,11 +40,15 @@ describe('Word#numbers_to_words') do
   end
   it("returns 'one million' when given 1000000") do
     number = Word.new(1200000)
-    expect(number.numbers_to_words()).to(eq("one million  two hundred  thousand "))
+    expect(number.numbers_to_words()).to(eq("one million two hundred  thousand "))
   end
   it("returns 'one million' when given 1000000") do
-    number = Word.new(112)
-    expect(number.numbers_to_words()).to(eq("one hundred twelve"))
+    number = Word.new(1234362)
+    expect(number.numbers_to_words()).to(eq("one million two hundred thirtyfour thousand three hundred sixtytwo"))
+  end
+  it("returns 'one billion' when given 1234567890") do
+    number = Word.new(1001234567890)
+    expect(number.numbers_to_words()).to(eq("one trillion one billion two hundred thirtyfour million five hundred sixtyseven thousand eight hundred ninety"))
   end
 
 end

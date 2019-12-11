@@ -23,8 +23,28 @@ describe('Word#numbers_to_words') do
     expect(number.numbers_to_words()).to(eq("ninetynine"))
   end
   it("returns 'fiftysix' when given 80") do
-    number = Word.new(80)
-    expect(number.numbers_to_words()).to(eq("eighty"))
+    number = Word.new(800)
+    expect(number.numbers_to_words()).to(eq("eight hundred "))
+  end
+  it("returns 'fivehundredtwentythree' when given 80") do
+    number = Word.new(523)
+    expect(number.numbers_to_words()).to(eq("five hundred twentythree"))
+  end
+  it("returns 'fifty thousand five hundred fiftysix' when given 50556") do
+    number = Word.new(50556)
+    expect(number.numbers_to_words()).to(eq("fifty thousand five hundred fiftysix"))
+  end
+  it("returns 'fifty thousand' when given 50000") do
+    number = Word.new(100000)
+    expect(number.numbers_to_words()).to(eq("one hundred  thousand "))
+  end
+  it("returns 'one million' when given 1000000") do
+    number = Word.new(1200000)
+    expect(number.numbers_to_words()).to(eq("one million  two hundred  thousand "))
+  end
+  it("returns 'one million' when given 1000000") do
+    number = Word.new(112)
+    expect(number.numbers_to_words()).to(eq("one hundred twelve"))
   end
 
 end
